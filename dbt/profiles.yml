@@ -1,0 +1,21 @@
+eolien_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('PG_HOST', 'localhost') }}"
+      port: "{{ env_var('PG_PORT', '5433') | int }}"
+      dbname: "{{ env_var('PG_DB', 'eolien_db') }}"
+      user: "{{ env_var('PG_USER', 'eolien') }}"
+      password: "{{ env_var('PG_PASS', 'eolien123') }}"
+      schema: staging
+      threads: 4
+    prod:
+      type: postgres
+      host: "{{ env_var('RDS_HOST') }}"
+      port: 5432
+      dbname: "{{ env_var('RDS_DB', 'eolien_db') }}"
+      user: "{{ env_var('RDS_USER') }}"
+      password: "{{ env_var('RDS_PASS') }}"
+      schema: staging
+      threads: 8

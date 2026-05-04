@@ -1,0 +1,95 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: "Données brutes ingérées par les DAGs Airflow"
+    tables:
+      - name: cadastre_parcelles
+        description: "Parcelles cadastrales DGFiP — 95 départements"
+        columns:
+          - name: id
+            tests: [not_null]
+          - name: geometry
+            tests: [not_null]
+
+      - name: bdtopo_routes
+        description: "Routes BD TOPO IGN"
+
+      - name: bdtopo_haies
+        description: "Haies BD TOPO IGN (loi EAV)"
+
+      - name: bdtopo_vegetation
+        description: "Zones de végétation BD TOPO"
+
+      - name: bdtopo_batiments
+        description: "Bâtiments BD TOPO"
+
+      - name: bdtopo_lignes_elec
+        description: "Lignes électriques BD TOPO"
+
+      - name: bdtopo_pylones
+        description: "Pylônes BD TOPO"
+
+      - name: sia_obstacles
+        description: "Obstacles aéronautiques SIA/DGAC (BDOSA)"
+
+      - name: anfr_faisceaux_hertziens
+        description: "Faisceaux hertziens ANFR"
+
+      - name: enedis_postes_source
+        description: "Postes source HTA/HTB Enedis/ORE"
+
+      - name: enedis_raccordements
+        description: "Capacités de raccordement ORE"
+
+      - name: rte_raccordements
+        description: "Capacités raccordement HTB RTE"
+
+      - name: rne_conseillers_municipaux
+        description: "Élus RNE — conseillers municipaux"
+
+      - name: rne_conseillers_departementaux
+        description: "Élus RNE — conseillers départementaux"
+
+      - name: zaer_proposees
+        description: "ZAER proposées par les communes"
+
+      - name: zaer_arretees
+        description: "ZAER arrêtées par les préfets"
+
+      - name: znieff
+        description: "ZNIEFF I et II — INPN"
+
+      - name: natura2000
+        description: "Zones Natura 2000 (ZSC + ZPS)"
+
+      - name: mcc_monuments_historiques_classes
+        description: "Monuments historiques classés — MCC"
+
+      - name: mcc_monuments_historiques_inscrits
+        description: "Monuments historiques inscrits — MCC"
+
+      - name: mcc_sites_classes
+        description: "Sites classés — MCC"
+
+      - name: mcc_sites_inscrits
+        description: "Sites inscrits — MCC"
+
+      - name: mcc_atlas_patrimoines
+        description: "Atlas des patrimoines — MCC"
+
+      - name: eoliennes_georisques
+        description: "Éoliennes ICPE — Géorisques"
+
+      - name: eoliennes_dreals
+        description: "Éoliennes DREALs (×12 régions)"
+
+      - name: communes
+        description: "Communes Admin Express IGN"
+        columns:
+          - name: insee_com
+            tests: [not_null, unique]
+
+      - name: communes_projet
+        description: "Communes dans le périmètre des projets éoliens"
