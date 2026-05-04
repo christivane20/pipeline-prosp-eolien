@@ -1,7 +1,7 @@
 # 🌬️ Pipeline SIG — Prospection Éolienne Onshore
 
-> Pipeline géospatial open source reproduisant et améliorant l'architecture SIG
-> Développé dans le cadre du TFE Ingénieur ESGT (wpd, 2026) par **Christ Ivane KOUADIO**.
+> Pipeline géospatial open source pour la gestion des données géospatiales 
+> en prospection éolienne onshore. Développé par **Christ Ivane KOUADIO** — ESGT (2026).
 
 ---
 
